@@ -23,13 +23,13 @@ const HeroBanner = () => {
   }, [data]);
 
   const handleSearchQueryOnKeyUp = (event) => {
-    if (event.key === 'Enter' && query.length > 0 && query !== ' ') {
+    if (event.key === 'Enter' && query.length > 0) {
       navigate(`/search/${query}`);
     }
   };
 
   const handleSearchQueryOnBtn = () => {
-    if (query.length > 0 && query !== ' ') {
+    if (query.length > 0) {
       navigate(`/search/${query}`);
     }
   };
