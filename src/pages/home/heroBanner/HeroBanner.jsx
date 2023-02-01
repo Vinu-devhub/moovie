@@ -22,8 +22,14 @@ const HeroBanner = () => {
     setBackgroundImg(bgImg);
   }, [data]);
 
-  const handleSearchQuery = (event) => {
-    if (event.key === 'Enter' && query.length > 0) {
+  const handleSearchQueryOnKeyUp = (event) => {
+    if (event.key === 'Enter' && query.length > 0 && query !== ' ') {
+      navigate(`/search/${query}`);
+    }
+  };
+
+  const handleSearchQueryOnBtn = () => {
+    if (query.length > 0 && query !== ' ') {
       navigate(`/search/${query}`);
     }
   };
@@ -49,9 +55,9 @@ const HeroBanner = () => {
               type='text'
               placeholder='Search Keywords...'
               onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={handleSearchQuery}
+              onKeyUp={handleSearchQueryOnKeyUp}
             />
-            <button>Search</button>
+            <button onClick={handleSearchQueryOnBtn}>Search</button>
           </div>
         </div>
       </ContentWrapper>
